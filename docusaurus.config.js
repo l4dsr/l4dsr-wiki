@@ -8,20 +8,20 @@ import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
+  title: 'DOCOCK',
+  tagline: 'I LOVE COCK',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
+  url: 'https://l4dsr.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl: '/l4dsr-wiki',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'l4dsr', // Usually your GitHub org/user name.
+  projectName: 'l4dsr-wiki', // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -34,6 +34,11 @@ const config = {
     locales: ['en'],
   },
 
+  customFields: {
+    discordUrl: 'https://discord.gg/JhndxqQEwg',
+    githubUrl: 'https://github.com/l4dsr/l4dsr-wiki',
+  },
+
   presets: [
     [
       'classic',
@@ -44,15 +49,9 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/l4dsr/l4dsr-wiki/tree/master/packages/create-docusaurus/templates/shared/',
         },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-        },
+        blog: false,
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -102,16 +101,20 @@ const config = {
             title: 'Community',
             items: [
               {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+                label: 'Left 4 Dead 2 Leaderboards',
+                href: 'https://speedrun.com/l4d2',
+              },
+              {
+                label: 'Left 4 Dead Leaderboards',
+                href: 'https://speedrun.com/l4d',
               },
               {
                 label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
+                href: 'https://discord.gg/JhndxqQEwg',
               },
               {
-                label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
+                label: 'Twitch',
+                href: 'https://twitch.tv/l4druns',
               },
             ],
           },
@@ -124,7 +127,7 @@ const config = {
               },
               {
                 label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                href: 'https://github.com/l4dsr/l4dsr-wiki',
               },
             ],
           },
