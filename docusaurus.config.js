@@ -50,6 +50,10 @@ const config = {
           // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/l4dsr/l4dsr-wiki/tree/master/packages/create-docusaurus/templates/shared/',
+
+          admonitions: {
+              keywords: ['note', 'tip', 'info', 'caution', 'danger', 'diffe', 'diffm', 'diffh'],
+          },
         },
         blog: false,
         theme: {
