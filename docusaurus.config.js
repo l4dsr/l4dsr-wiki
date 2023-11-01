@@ -79,7 +79,13 @@ const config = {
             type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
             position: 'left',
-            label: 'Tutorial',
+            label: 'Tutorials',
+          },
+          {
+            type: 'docSidebar',
+            sidebarId: 'rulesSidebar',
+            position: 'left',
+            label: 'Rules'
           },
           {
             href: 'https://github.com/l4dsr/l4dsr-wiki',
@@ -95,8 +101,8 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Tutorial',
-                to: '/docs/intro',
+                label: 'Start here',
+                to: '/docs/category/welcome',
               },
             ],
           },
