@@ -8,8 +8,8 @@ import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'DOCOCK',
-  tagline: 'I LOVE COCK',
+  title: 'L4DSR Wiki',
+  tagline: 'Tutorials and more!',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
@@ -69,7 +69,7 @@ const config = {
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
-        title: 'My Site',
+        title: 'L4DSR Wiki',
         logo: {
           alt: 'My Site Logo',
           src: 'img/logo.svg',
@@ -86,6 +86,16 @@ const config = {
             sidebarId: 'rulesSidebar',
             position: 'left',
             label: 'Rules'
+          },
+          {
+            href: 'https://speedrun.com/l4d2',
+            label: 'L4D2 SRC',
+            position: 'right',
+          },
+          {
+            href: 'https://twitch.tv/L4DRuns',
+            label: 'Twitch',
+            position: 'right',
           },
           {
             href: 'https://github.com/l4dsr/l4dsr-wiki',
@@ -137,7 +147,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Made with 💚 by the L4D Speedrunning Community`,
       },
       prism: {
         theme: prismThemes.github,
