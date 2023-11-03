@@ -1,1 +1,172 @@
 # Rules
+
+## For any questions please ask in the [Discord server](https://discord.gg/JAUCEJmm2H)
+
+## [Click here for the Game Version Glossary](https://www.speedrun.com/l4d2/guides/up099)
+
+## Submission/Proof Requirements
+
+### ALL RUNS require proof in the form of demo files AND suitable video with game audio
+
+- Proof must remain publicly available for at least 6 months in order for runs to remain on the leaderboard.
+
+### VIDEO PROOF
+
+- Video must be recorded as you play (not demo playback).
+- Video must be uncut for the entire run.
+- Game audio must be clear enough to confirm that no addons or mods were used.
+- Video must be hosted on a permanent platform, such as YouTube or as a Twitch highlight
+- A Twitch VOD is not acceptable as it will expire.
+- For co-op runs, only video from the host is required.
+- Video must contain mostly the speedrun itself (some extra footage is fine).
+
+### DEMO PROOF
+
+- Click [HERE](https://github.com/ImAciidz/L4D-Speedrunning/wiki/Demos) for a guide on recording demos.
+- **ALL PC RUNS must have demo proof in addition to video proof.**
+- As of 7/17/23, **demo recording must contain the entirety of the intro cutscene** on the first level of the run.
+- Demos must be recording at all times for the entire duration of the run.
+- For co-op runs, all players in the run must record and link their demos in the submission.
+- It is highly advised that you install [SST](https://mikes.software/sst/) to make demo recording easier.
+- If you need to go to the main menu or run the `map` command at any point during a multi-campaign run, you need SST in order for the run to be valid.
+
+### ADDONS AND MODS ARE BANNED
+
+- This DOES INCLUDE **ANY** kind of textures, reskins, changes to audio, **autojump (autobhop) scripts**, null movement/null cancelling scripts, macros, etc. 
+- This DOES NOT INCLUDE configs, or external custom crosshairs (RTSS, HudSight, mike's xhair program, etc.). 
+- **Some keybinds and commands are banned, see below for more info.**
+
+## General Rules
+
+- The red "4" loading icon in the top right must be unobstructed during loading screens.
+- You cannot change game versions mid-run.
+- HUD elements must fully disappear when entering the escape vehicle in a finale in order for a campaign to be considered completed.
+- Campaigns can be played in any order in multi-campaign runs, but each campaign must be played in a single, unbroken instance from its first map to the last map.
+- Playing on Realism is allowed.
+- It is highly recommended (but not required) for runners on PC to use LiveSplit and the included autosplitter.
+- It can be enabled by right-clicking in Livesplit, clicking “Edit Splits”, and clicking “Activate”.
+
+### CO-OP RUNS
+
+- Must be played on a local server (via lobby or `map` command)
+- The submitted perspective must be of the host, or whoever loads first.
+- Can be completed with 2 to 4 players.
+- Players cannot be swapped mid-run.
+- All players in the run must record and link their demos in the submission.
+
+## Keybinds/Commands
+
+Though custom keybinds are allowed for convenience, **any route, trick or in-game action which relies on behaviour that is only achievable through the use of the developer console is banned**. Examples of said behaviour include pausing/unpausing the game in ways that are not otherwise possible and sending different commands when pressing and unpressing a key. This rule doesn't concern which commands are allowed to be used, but how the developer console itself impacts the speedrun. That being said, a full list of allowed commands and their allowed usages is as follows:
+
+### Whitelisted Commands
+
+**These commands may be bound to any number of keys, but must be bound directly, not as part of an alias or with other commands on the same key:**
+
+- `+attack`
+- `+attack2`
+- `+back`
+- `+duck`
+- `+forward`
+- `+jump`
+- `+mouse_menu Orders`
+- `+mouse_menu QA`
+- `+moveleft`
+- `+moveright`
+- `+reload`
+- `+showscores`
+- `+speed`
+- `+use`
+- `+voicerecord`
+- `+zoom`
+- `chooseteam`
+- `go_away_from_keyboard`
+- `impulse 100` (flashlight)
+- `impulse 201` (spray)
+- `invnext`
+- `invprev`
+- `lastinv`
+- `slot{1-10}`
+- `toggle_duck`
+
+**These commands can be used, and may be bound to keys and combined in aliases, including key-toggling and cycling scripts:**
+
+- `bind`
+- `callvote [ChangeDifficulty/ChangeMission/RestartGame]`
+- `disconnect`
+- `host_writeconfig`
+- `jpeg`
+- `map <map name> <difficulty> <mode>`
+- `messagemode`
+- `messagemode2`
+- `motd`
+- `r_cleardecals`
+- `rate`
+- `say`
+- `say_team`
+- `screenshot`
+- `setinfo name <name>`
+- `Vote [Yes/No]`
+
+**These cvars can be modified, and may be bound to keys and combined in aliases, including key-toggling and cycling scripts:**
+
+- `cc_linger_time`
+- `cc_predisplay_time`
+- `cl_cmdrate`
+- `cl_colorblind`
+- `cl_crosshair_*`
+- `cl_glow_*`
+- `cl_interp_ratio`
+- `cl_interp`
+- `cl_showdemooverlay`
+- `cl_showfps`
+- `cl_showpos`
+- `cl_updaterate`
+- `cl_viewmodelfovsurvivor` (on game versions that support it)
+- `closecaption`
+- `con_fiter_*`
+- `demo_*`
+- `engine_no_focus_sleep`
+- `fov_desired` (on game versions that support it)
+- `fps_max`
+- `m_pitch [0.022/-0.022]`
+- `m_filter`
+- `m_rawinput`
+- `m_customaccel`
+- `m_customaccel_exponent`
+- `m_customaccel_max`
+- `m_customaccel_scale`
+- `name`
+- `net_graph`
+- `net_splitpacket_maxrate [15000/30000]`
+- `sensitivity`
+- `snd_mixahead`
+- `snd_musicvolume`
+- `sv_lan`
+- `volume`
+
+**These cvars can be modified, but their value must not change for the entire duration of the speedrun:**
+
+- `snd_mute_losefocus`
+
+### Blacklisted Commands
+
+While only the *whitelisted* commands above are allowed to be used, for clarity, the following list contains common commands that are **NOT** allowed to be used. This list is not exhaustive.
+
+**Using these commands, or changing them from default/game-controlled values WILL RESULT IN YOUR RUN BEING REJECTED:**
+
+- `sv_cheats`, or any command/variable/game state requiring `sv_cheats`
+- `developer`
+- `z_difficulty`
+- `kick`
+- `kill`
+- `wait`
+- `thirdpersonshoulder`
+- `changelevel`
+- `jointeam`
+- `snd_restart`
+- `mp_*`
+- All `sv_*` commands not mentioned in the whitelist
+
+**If you feel something is missing from the whitelist or blacklist, or wish to seek clarification, please contact a moderator through the [Discord server](https://discord.gg/JAUCEJmm2H).**
+
+**Attempts to abuse any potential loopholes in this white/blacklist (or the rest of the rules in general) will be dealt with at the discretion of the mod team.**
