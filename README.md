@@ -11,7 +11,7 @@ The site is built using [Docusaurus 3](https://docusaurus.io/).
 3. `cd` to the directory and run `npm install` (for now, with `--force` until mdx-embed is replaced or updated).
 4. Run `npm start` which will run the site locally & automatically open it in your browser
 5. Make changes (page will auto refresh every time you save a file)
-6. When ready, open a pull request
+6. When ready, commit your changes and open a pull request (you should probably fork the repo).
 7. ???
 8. Profit
 
