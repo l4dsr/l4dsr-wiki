@@ -1,41 +1,18 @@
-# Website
+# L4D Speedrunning Wiki
 
-This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+The site is built using [Docusaurus 3](https://docusaurus.io/).
 
-### Installation
+[Click here](https://l4dsr.github.io/l4dsr-wiki/) to get to the wiki.
 
-```
-$ yarn
-```
+## Contributing
 
-### Local Development
+1. Clone the repo
+2. Install NodeJS (18.0+)
+3. `cd` to the directory and run `npm install` (for now, with `--force` until mdx-embed is replaced or updated).
+4. Run `npm start` which will run the site locally & automatically open it in your browser
+5. Make changes (page will auto refresh every time you save a file)
+6. When ready, open a pull request
+7. ???
+8. Profit
 
-```
-$ yarn start
-```
-
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
-
-### Build
-
-```
-$ yarn build
-```
-
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
-
-### Deployment
-
-Using SSH:
-
-```
-$ USE_SSH=true yarn deploy
-```
-
-Not using SSH:
-
-```
-$ GIT_USER=<Your GitHub username> yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+The docs pages are all written in [Markdown](https://www.markdownguide.org/cheat-sheet/), and you will find all pages in the `docs` folder.
