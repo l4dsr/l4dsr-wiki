@@ -72,7 +72,7 @@ const config = {
         title: 'L4DSR Wiki',
         logo: {
           alt: 'My Site Logo',
-          src: 'img/logo.svg',
+          src: 'img/L4D2-icon.jpg',
         },
         items: [
           {
