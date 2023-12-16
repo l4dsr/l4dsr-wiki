@@ -88,6 +88,12 @@ const config = {
             label: 'Rules'
           },
           {
+            type: 'docSidebar',
+            sidebarId: 'contribSidebar',
+            position: 'left',
+            label: 'Contributing'
+          },
+          {
             href: 'https://speedrun.com/l4d2',
             label: 'L4D2 SRC',
             position: 'right',
