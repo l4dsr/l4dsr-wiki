@@ -6,12 +6,12 @@ The site is built using [Docusaurus 3](https://docusaurus.io/).
 
 ## Contributing
 
-1. Clone the repo
+1. Fork and clone the repo
 2. Install NodeJS (18.0+)
 3. `cd` to the directory and run `npm install` (for now, with `--force` until mdx-embed is replaced or updated).
 4. Run `npm start` which will run the site locally & automatically open it in your browser
 5. Make changes (page will auto refresh every time you save a file)
-6. When ready, commit your changes and open a pull request (you should probably fork the repo).
+6. When ready, commit your changes and open a pull request.
 7. ???
 8. Profit
 
