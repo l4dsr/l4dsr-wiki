@@ -89,9 +89,9 @@ const config = {
           },
           {
             type: 'docSidebar',
-            sidebarId: 'contribSidebar',
+            sidebarId: 'knowledgebaseSidebar',
             position: 'left',
-            label: 'Contributing'
+            label: 'Knowledge Base'
           },
           {
             href: 'https://speedrun.com/l4d2',
