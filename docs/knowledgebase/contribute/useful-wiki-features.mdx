@@ -1,19 +1,23 @@
-# Fancy markdown stuff
 
 import {YouTube, Twitch} from 'mdx-embed'
 
-This won't be super verbose, this assumes you already know the basics of markdown and in general can make some inferences based on what is written here.
+# Useful Wiki Features
+
+This page will go over some of the main features you can use to format and present information in the wiki.
 
 Feel free to reference from the official [Docusaurus Guide](https://docusaurus.io/docs/markdown-features) (link to the markdown features page) as well.
 
 ## Code
+
 ### Code block
+
 ````
 ```
 balls
 ```
 ````
 ### Inline Code
+
 ```
 `inline code`
 ```
@@ -24,12 +28,15 @@ balls
 ### How-to
 
 To make an admonition, you do something like this:
+
 ```
 :::note
 Sample Text
 :::
 ```
+
 Which turns into this:
+
 :::note
 Sample Text
 :::
@@ -68,11 +75,13 @@ this one is called `diffh`
 ### Custom admonition title text
 
 You can make these have custom titles instead of the default by putting words in brackets at the end:
+
 ```
 :::info[COCK AND BALL TORTURE]
 test
 :::
 ```
+
 :::info[COCK AND BALL TORTURE]
 test
 :::
@@ -86,28 +95,34 @@ Read [here](https://docusaurus.io/docs/markdown-features/admonitions#nested-admo
 This is a two step thing:
 
 At the top of the page you'll have to insert this (replace `YouTube` with `Twitch` if needed). You can also do `{YouTube, Twitch}` if you plan to embed videos from both sites on the same page.
+
 ```
 import {YouTube} from 'mdx-embed'
 ```
+
 After this, when you want to embed a YouTube or Twitch video, you write something like this (obviously replace the id with the one from your video of choice):
+
 ```
 <YouTube youTubeId="ULYV5wadhNQ"/>
 <Twitch twitchId="1980957789"/>
 ```
+
 If you were to copy and paste the YouTube line, you'd get this: 
 <YouTube youTubeId="ULYV5wadhNQ"/>
 
 ## Image Embeds
 
 You can embed external images with normal markdown syntax:
+
 ```
 ![epic image](https://i.imgur.com/gjUlkjt.png)
 ```
+
 However, it's preferred that we keep everything in the repository so that we don't have to worry about external files potentially getting deleted or inaccessible for any reason
 
-This can be achieved by putting the image in the repo, either in a central folder (let's say `assets`), or in a subfolder of the current folder (named `img`). Both are arbitrary, dunno which is easier/better to work with overall. **I think for now we'll stick to subfolders named `img`**
+This can be achieved by putting the image in the repo, either in a central folder (let's say `assets`), or in a subfolder of the current folder (named `img`). Both are arbitrary, dunno which is easier/better to work with overall. **For now we'll stick to subfolders named `img`**
 
-Either way, you can then reference the image with a relative path. For example, if I put an image in a subfolder of the current folder where this markdown file resides (and the subfolder is named `img`, it would look like this):
+Either way, you can then reference the image with a relative path. For example, if I put an image in a subfolder of the current folder where this markdown file resides (and the subfolder is named `img`), it would look like this:
 
 ```
 ![epic image](./img/TopGPeakAlphaSigmaMale.jpg)
