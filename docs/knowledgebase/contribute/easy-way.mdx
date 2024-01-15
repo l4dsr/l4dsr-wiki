@@ -7,7 +7,7 @@ sidebar_position: 2
 Regardless of which way you choose, there are two things you need to do first either way.
 
 - Create a [GitHub](https://github.com) account
-- Fork the [Wiki's GitHub repository](https://github.com/TF2SR/TF2SR-Wiki)
+- Fork the [Wiki's GitHub repository](https://github.com/l4dsr/l4dsr-wiki)
 
 Creating a GitHub account should be fairly straight forward, so I won't walk you through it here. The more pressing question is "wtf is that nonsense written in the second bullet point up there?"
 
@@ -27,15 +27,15 @@ This will take you to a new screen where you can change the name and description
 
 ![](img/ghconfirmfork.jpg)
 
-You'll probably want to leave the checkbox labeled 'Copy the `main` branch only' ticked, but you are doing no harm either way. Unticking it just means that you're also copying over any other branches we may have made that you probably don't need.
+You'll probably want to leave the checkbox labeled 'Copy the `master` branch only' ticked, but you are doing no harm either way. Unticking it just means that you're also copying over any other branches we may have made that you probably don't need.
 
-Once you've hit that green button then badabing badaboom, you just forked the TF2SR Wiki, and you're ready to make some changes!
+Once you've hit that green button then badabing badaboom, you just forked the L4DSR Wiki, and you're ready to make some changes!
 
 ## Making your changes
 
-I'm gonna show you a little magic trick. Click on the URL bar at the top of your browser. The URL should look something like `https://github.com/<yourname>/TF2SR-Wiki` Now, change the `.com` to `.dev`
+I'm gonna show you a little magic trick. Click on the URL bar at the top of your browser. The URL should look something like `https://github.com/<yourname>/l4dsr-wiki` Now, change the `.com` to `.dev`
 
-![](img/ghcom.jpg) ![](img/ghdev.jpg)
+![](img/githubdotcom.jpg) ![](img/githubdotdev.jpg)
 
 This will open up a fancy text editor, letting you make your changes directly in the browser. All the markdown files that contain the text within the wiki are located in the `docs` directory.
 
@@ -77,13 +77,13 @@ In order to record the changes in your own repository, all you need to do is pre
 
 [^1]: The reason it's labeled as doing 2 things is because Git usually gives you a lot of optional intermediary steps before you actually record your changes to your repository. It usually goes from your local changes -> Staging area -> Commit -> Push. For our purposes though, we don't need 15 billion different steps to double check that our changes didn't break anything.
 
-Once you've done that, you can double check that it actually went through by going to `github.com/<yourname>/TF2SR-Wiki/commits/main`, which will show you a history of every commit ever made to the repository, including the ones that were made on the main repository before you created your fork.
+Once you've done that, you can double check that it actually went through by going to `github.com/<yourname>/l4dsr-wiki/commits/main`, which will show you a history of every commit ever made to the repository, including the ones that were made on the main repository before you created your fork.
 
 ### Creating a Pull Request
 
 Home stretch! This is the final step in the process. The pull request is now the formal step where you make a **request** to the maintainer of the main repository to **pull** the changes you've made on your fork onto the main repository.
 
-To open a pull request, go to the main page of your repository (`github.com/<yourname>/TF2SR-Wiki`) and check to see if this bar shows up that reads "This branch is `xyz` commit(s) ahead of TF2SR:main". If you don't see this, that means that you haven't made a commit to your own repository yet.
+To open a pull request, go to the main page of your repository (`github.com/<yourname>/l4dsr-wiki`) and check to see if this bar shows up that reads "This branch is `xyz` commit(s) ahead of l4dsr:master". If you don't see this, that means that you haven't made a commit to your own repository yet.
 
 Click on the dropdown labeled "Contribute" and then on "Open pull request".
 
@@ -94,3 +94,24 @@ This will take you to the final page, where you can edit the title of the pull r
 The main repository will do some automatic checks to see if the site will compile properly. If any checks fail, that's usually a skill issue on my end, so you don't need to worry that you actually broke something.
 
 **Congratulations!** You just submitted your changes to the wiki! Now you can sit back, scroll back to the top and wonder how I can justify calling this the "shrimple way" when there is so much goddamn text like what the hell i just want to edit some text on a goddamn wiki
+
+## Syncing your repo once changes are merged
+
+So, once your pull request is merged, your repo will fall out of sync with the main repo.
+
+For example, it'll say something like this:
+
+![](img/ghoutofsync.jpg)
+
+There are a variety of ways to resolve this, but it's simplest to do this through GitHub.
+
+First, click the dropdown. You now have two choices. In most cases, assuming everything you have on the branch has been merged into the main repo, it is preferred (and safe) to click `Discard x commit(s)`. If you have work you want to preserve, you should click `Update branch` instead.
+
+![](img/ghsyncfork.jpg)
+
+The reason that `Discard x commit(s)` is preferred is that it avoids creating ugly merge commits that ultimately serve no logical purpose for a fork.
+
+:::caution todo
+explain how to work in branches (should probably put this under the making your changes section idk)
+:::
+
