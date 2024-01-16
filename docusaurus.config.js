@@ -22,6 +22,7 @@ const config = {
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'l4dsr', // Usually your GitHub org/user name.
   projectName: 'l4dsr-wiki', // Usually your repo name.
+  trailingSlash: true,
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
