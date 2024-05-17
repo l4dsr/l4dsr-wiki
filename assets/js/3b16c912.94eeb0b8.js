@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkl_4_dsr_wiki=self.webpackChunkl_4_dsr_wiki||[]).push([[389],{8823:e=>{e.exports=JSON.parse('{"title":"Welcome","slug":"/category/welcome","permalink":"/l4dsr-wiki/docs/category/welcome","navigation":{"next":{"title":"Basic Setup","permalink":"/l4dsr-wiki/docs/tutorials/welcome/Basic Setup"}}}')}}]);
