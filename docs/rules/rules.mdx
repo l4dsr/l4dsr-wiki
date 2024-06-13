@@ -15,7 +15,7 @@
 - Video must be recorded as you play (not demo playback).
 - Video must be uncut for the entire run.
 - Game audio must be clear enough to confirm that no addons or mods were used.
-- Video must be hosted on a permanent platform, such as YouTube or as a Twitch highlight
+- Video must be hosted on a permanent platform, such as YouTube or as a Twitch highlight.
 - A Twitch VOD is not acceptable as it will expire.
 - For co-op runs, only video from the host is required.
 - Video must contain mostly the speedrun itself (some extra footage is fine).
@@ -45,12 +45,12 @@
 - Campaigns can be played in any order in multi-campaign runs, but each campaign must be played in a single, unbroken instance from its first map to the last map.
 - During a multi-campaign run, if you accidentally do something that breaks a rule (such as voting to Easy in Expert Realism), you may continue the run if you restart the current campaign.
 - Playing on Realism is allowed.
+- Playing on or using a dedicated server is not allowed. All runs must be played on a local server (using singleplayer, or a lobby, or the `map` command).
 - It is highly recommended (but not required) for runners on PC to use LiveSplit and the included autosplitter.
 - It can be enabled by right-clicking in Livesplit, clicking “Edit Splits”, and clicking “Activate”.
 
 ### CO-OP RUNS
 
-- Must be played on a local server (via lobby or `map` command)
 - The submitted perspective must be of the host, or whoever loads first.
 - Can be completed with 2 to 4 players.
 - Players cannot be swapped mid-run.
@@ -58,7 +58,7 @@
 
 ## Keybinds/Commands
 
-Though custom keybinds are allowed for convenience, **any route, trick or in-game action which relies on behaviour that is only achievable through the use of the developer console is banned**. Examples of said behaviour include pausing/unpausing the game in ways that are not otherwise possible and sending different commands when pressing and unpressing a key. This rule doesn't concern which commands are allowed to be used, but how the developer console itself impacts the speedrun. That being said, a full list of allowed commands and their allowed usages is as follows:
+Though custom keybinds are allowed for convenience, **any route, trick or in-game action which relies on behaviour that is only achievable through the use of the developer console is banned**. Examples of said behaviour include pausing/unpausing the game in ways that are not otherwise possible, using aliases to send different commands when pressing and unpressing a key, and/or to override existing commands by using their names as alias names. This rule doesn't concern which commands are allowed to be used, but how the developer console itself impacts the speedrun. That being said, a full list of allowed commands and their allowed usages is as follows:
 
 ### Whitelisted Commands
 
@@ -137,6 +137,8 @@ Though custom keybinds are allowed for convenience, **any route, trick or in-gam
 - `m_customaccel_exponent`
 - `m_customaccel_max`
 - `m_customaccel_scale`
+- `mat_monitorgamma`
+- `mat_monitorgamma_tv_enabled`
 - `name`
 - `net_graph`
 - `net_splitpacket_maxrate [15000/30000]`
@@ -167,6 +169,7 @@ While only the *whitelisted* commands above are allowed to be used, for clarity,
 - `jointeam`
 - `snd_restart`
 - `mp_*`
+- `status`
 - All `sv_*` commands not mentioned in the whitelist
 
 **If you feel something is missing from the whitelist or blacklist, or wish to seek clarification, please contact a moderator through the [Discord server](https://discord.gg/JAUCEJmm2H).**
