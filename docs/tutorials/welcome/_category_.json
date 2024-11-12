@@ -2,6 +2,7 @@
     "label": "Welcome",
     "position": 1,
     "link": {
-      "type": "generated-index"
+      "type": "generated-index",
+      "description": "This section covers basic setup for running"
     }
 }
