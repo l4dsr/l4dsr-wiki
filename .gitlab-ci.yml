@@ -1,0 +1,27 @@
+image: node:lts
+
+stages:
+  - test
+  - deploy
+
+test:
+  stage: test
+  script:
+  - cd website
+  - npm install --force
+  - npm run build
+  except:
+    - master
+
+pages:
+  stage: deploy
+  script:
+  - cd website
+  - npm install --force
+  - npm run build
+  - mv ./build ../public
+  artifacts:
+    paths:
+    - public
+  only:
+    - master
