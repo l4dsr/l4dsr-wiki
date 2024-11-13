@@ -1,0 +1,83 @@
+# Linux Setup
+
+## Method 1 (easy way, directly in the bat)
+
+*Use this method unless you have a specific reason not to*
+
+Tested by Osku on Ubuntu 22.04 (Wayland) on 2024-11-08
+Tested by Skytis on Kubuntu 24.04 LTS (x11) on 2024-11-08 with Proton 9.0-3
+Tested by Skytis on Kubuntu 24.10 (Wayland) (clean install) on 2024-11-08 with Proton Experimental
+
+Note: I've tried this previously with aciidz' assistance and couldn't get it to work. Osku tried this on 2024-11-08 and it worked. I tried it again the same day and it also worked for me. No idea why
+
+### Steps
+
+* Acquire L4D2 2000 \[link to Discord/source\], unzip somewhere
+* Acquire LiveSplit, unzip somewhere
+* Edit the `Start L4D2.2000.bat` to add LiveSplit to it
+  * In my case there's a folder called "Games" which has the folders "L4D2 2.0.0.0" (this contains `Start L4D2.2000.bat`) and "livesplit" (this contains `LiveSplit.exe`)
+  * I added these lines (adjust according to your folder structure/LiveSplit location)
+    * `cd ..`
+    * `cd ..`
+    * `start livesplit\Livesplit.exe`
+* Add `Start L4D2.2000.bat` as Non-Steam game to Steam
+  * Add some other .exe then edit it to point to the .bat since you can't add the .bat directly
+* Under Compatibility force a specific compatibility tool select a Proton version (I used 9.0-3)
+* Launch the bat-Steam-game
+* Wait for the game and LiveSplit to start
+* Verify that SST works (check for the console output or see if sst commands can be autocompleted)
+  * If it crashes or SST doesn't work, use SST v0.5, newer versions don't work (or at least v0.8)
+    * [https://dl.mikes.software/sst/](https://dl.mikes.software/sst/)
+* Configure LiveSplit and verify that it works
+
+## Method 2 (complicated way, SteamTinkerLaunch)
+
+*Use this method if method 2 doesn't work or if you know what you're doing and want to tinker with more stuff*
+
+Tested by Skytis on Kubuntu 24.04 LTS (x11) on 2024-11-02 with the latest versions of STL and pacstall available and proton-9.0-3c (via STL)
+
+### Steps
+
+* Acquire L4D2 2000 \[link to Discord/source\], unzip somewhere
+* Acquire LiveSplit, unzip somewhere
+* Install SteamTinkerLaunch [https://github.com/sonic2kk/steamtinkerlaunch](https://github.com/sonic2kk/steamtinkerlaunch)
+  * It is not available via a native repository for (K)ubuntu. Install https://github.com/pacstall/pacstall and then run `pacstall -I steamtinkerlaunch-git`
+    * UPPER CASE i (for install), NOT LOWER CASE L
+* Add STL as compatibility tool [https://github.com/sonic2kk/steamtinkerlaunch/wiki/Steam-Compatibility-Tool](https://github.com/sonic2kk/steamtinkerlaunch/wiki/Steam-Compatibility-Tool)
+  * Should just need to run `steamtinkerlaunch compat add`
+  * Restart Steam
+* Add `Start L4D2.2000.bat` as Non-Steam game to Steam
+  * Add some other .exe then edit it to point to the .bat since you can't add the .bat directly
+* Under Compatibility force a specific compatibility tool: Steam Tinker Launch
+* Launch the bat-Steam-game
+* In the STL window click the `MAIN MENU` button (you have 2s to do this, then the game is automatically launched)
+* Click on `GAME MENU`
+* Turn on `Use custom command`
+* Custom command: Select your LiveSplit.exe
+* Enable `Fork custom command`
+* Disable `Use Steam Linux Runtime with Custom Command`
+* Enable `Inject custom command`
+* Click `SAVE AND PLAY`
+* Wait for the game and LiveSplit to start
+* Verify that SST works (check for the console output or see if sst commands can be autocompleted)
+  * If it crashes, use SST v0.5, newer versions don't work (or at least v0.8)
+    * [https://dl.mikes.software/sst/](https://dl.mikes.software/sst/)
+    * Place the .dll in the SST folder
+* Configure LiveSplit and verify that it works
+  * I had it already set up before from testing other stuff, so if weird stuff happens when configuring, maybe launch LiveSplit by itself to configure it
+
+Notes
+
+* If you quit the game first, LiveSplit freezes. You can just stop it via Steam
+* If you quit LiveSplit first, then the game, everything should properly be shut down
+* If you launch the bat-Steam-game and you don't get the STL launch dialog (where you can go to `MAIN MENU`), close LiveSplit and the game, then start `Steam Tinker Launch (Settings)` to edit stuff. It should have automatically selected the game you last launched (so the bat-Steam-game)
+* Fonts don't work correctly, so stuff looks a little weird
+* Sometimes LiveSplit doesn't start. No clue why
+
+## Credits
+
+* [https://grapefruit.neocities.org/stuff/livesplit\_proton](https://grapefruit.neocities.org/stuff/livesplit_proton) \- Figuring out how to get autosplitters working with Proton via STL
+* Zephyr - sending [https://grapefruit.neocities.org/stuff/livesplit\_proton](https://grapefruit.neocities.org/stuff/livesplit_proton) to me
+* Skytis - Figuring the STL stuff out for Left 4 Dead 2
+* aciidz - Info that newer SST doesn't work on Linux, emotional support
+* Osku - Making me retest method 1, testing method 1
