@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkl_4_dsr_wiki=self.webpackChunkl_4_dsr_wiki||[]).push([[235],{8552:s=>{s.exports=JSON.parse('{"name":"docusaurus-plugin-content-pages","id":"default"}')}}]);
