@@ -55,6 +55,8 @@ const config = {
           admonitions: {
               keywords: ['note', 'tip', 'info', 'caution', 'danger', 'diffe', 'diffm', 'diffh'],
           },
+          showLastUpdateAuthor: true,
+          showLastUpdateTime: true,
         },
         blog: false,
         theme: {
