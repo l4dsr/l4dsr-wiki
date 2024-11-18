@@ -12,15 +12,15 @@ Tested by Osku on Ubuntu 22.04 (Wayland) on 2024-11-08
 Tested by Skytis on Kubuntu 24.04 LTS (x11) on 2024-11-08 with Proton 9.0-3
 Tested by Skytis on Kubuntu 24.10 (Wayland) (clean install) on 2024-11-08 with Proton Experimental
 
-Note: I've tried this previously with aciidz' assistance and couldn't get it to work. Osku tried this on 2024-11-08 and it worked. I tried it again the same day and it also worked for me. No idea why
+Note: Skytis tried this previously (around July/August 2024) with aciidz' assistance and couldn't get it to work. Osku tried this on 2024-11-08 and it worked. Skytis tried it again the same day and it also worked for him. No idea why
 
 ### Steps
 
 * Acquire L4D2 2000 \[link to Discord/source\], unzip somewhere
 * Acquire LiveSplit, unzip somewhere
 * Edit the `Start L4D2.2000.bat` to add LiveSplit to it
-  * In my case there's a folder called "Games" which has the folders "L4D2 2.0.0.0" (this contains `Start L4D2.2000.bat`) and "livesplit" (this contains `LiveSplit.exe`)
-  * I added these lines (adjust according to your folder structure/LiveSplit location)
+  * In this example you have a folder called "Games" which has the folders "L4D2 2.0.0.0" (this contains `Start L4D2.2000.bat`) and "livesplit" (this contains `LiveSplit.exe`)
+  * Add these lines (adjust according to your folder structure/LiveSplit location)
     * `cd ..`
     * `cd ..`
     * `start livesplit\Livesplit.exe`
@@ -68,7 +68,7 @@ Tested by Skytis on Kubuntu 24.04 LTS (x11) on 2024-11-02 with the latest versio
     * [https://dl.mikes.software/sst/](https://dl.mikes.software/sst/)
     * Place the .dll in the SST folder
 * Configure LiveSplit and verify that it works
-  * I had it already set up before from testing other stuff, so if weird stuff happens when configuring, maybe launch LiveSplit by itself to configure it
+  * Skytis had it already set up before from testing other stuff, so if weird stuff happens to you when configuring, maybe launch LiveSplit by itself to configure it
 
 Notes
 
@@ -81,7 +81,7 @@ Notes
 ## Credits
 
 * [https://grapefruit.neocities.org/stuff/livesplit\_proton](https://grapefruit.neocities.org/stuff/livesplit_proton) \- Figuring out how to get autosplitters working with Proton via STL
-* Zephyr - sending [https://grapefruit.neocities.org/stuff/livesplit\_proton](https://grapefruit.neocities.org/stuff/livesplit_proton) to me
-* Skytis - Figuring the STL stuff out for Left 4 Dead 2
+* Zephyr - sending [https://grapefruit.neocities.org/stuff/livesplit\_proton](https://grapefruit.neocities.org/stuff/livesplit_proton) to Skytis
+* Skytis - Figuring the STL stuff out for Left 4 Dead 2, writing this guide
 * aciidz - Info that newer SST doesn't work on Linux, emotional support
-* Osku - Making me retest method 1, testing method 1
+* Osku - Testing method 1, making Skytis retest method 1
