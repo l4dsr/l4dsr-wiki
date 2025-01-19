@@ -81,6 +81,31 @@ Notes
 * Fonts don't work correctly, so stuff looks a little weird
 * Sometimes LiveSplit doesn't start. No clue why
 
+## Proton version specific issues
+
+*This is based on Skytis' experience on Kubuntu 24.04 LTS (x11) between November 2024 and 2025-01-18. Keep in mind that your mileage may vary based on various factors. Also new bugfix versions might fix or break things.*
+
+* 9.0-4: LiveSplit splits late, sometimes not at all
+* 9.0-3: No issues noticed but version is no longer (easily) available
+* 8.0-5: Inputs are occasionally not registered by the game (verified via input display software)
+* 7.0-6: Performance leak, increasing amount of stutters as the playsession goes on, complete system freeze after about 2.5h
+* 6.3-8: LiveSplit doesn't show the live comparison that shows up once the timer reaches -10s to the comparison, LiveSplit doesn't split
+* 5.13-6: Timer doesn't start, game loads very long (*might* be fixable)
+* 5.0-10: LiveSplit crashes with an error: "LiveSplit has crashed due to the following reason: Success"
+* 4.11-13: Same as 5.0-10, also the game just shows a black screen (with menu music but not sound) and the cursor is confined to a 4:3 box on that black screen
+* 4.2-9: Same as 4.11-13
+* 3.16-9: Game loads long, menu works but LiveSplit doesn't start (no error pop up)
+* 3.7-8: Same as 3.16-9
+* Steam Linux Runtime 1.0 (scout): Nothing launches
+* Legacy runtime 1.0: Nothing launches
+* GE-Proton9-22: Same as 9.0-4
+* GE-Proton9-21: Same as 9.0-4
+* GE-Proton9-20: Same as 9.0-4
+* GE-Proton9-19: Same as 9.0-4
+* GE-Proton9-1: Same as 8.0-5 but less frequently (based on limited testing), seems like the best option so far
+
+If you know how to set up older vanilla Proton versions or have found a version that works without issues (after multiple hours of testing), please reach out to Skytis
+
 ## Credits
 
 * [https://grapefruit.neocities.org/stuff/livesplit\_proton](https://grapefruit.neocities.org/stuff/livesplit_proton) \- Figuring out how to get autosplitters working with Proton via STL
