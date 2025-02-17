@@ -145,12 +145,33 @@ If you know how to set up older vanilla Proton versions or have found a version 
 
 *This is also based purely on Skytis' experiences*
 
-When just the game is running (with LiveSplit), it's fine. But streaming or recording with OBS always causes minor stutters in specific areas. These stutters are noticeable but not bad enough to miss bhops. Example areas with stuttering:
+There are certain areas where it seems like you always get lower FPS than usual, examples:
 * Carnival map 2 (Fairground) the open area with the merry-go-round (after the long slope)
 * Parish map 1 (Waterfront) after you exit the safe area, before the gate
+* Parish map 2 (Park) at the start of the the panic event
+These dips are noticeable, but not bad enough to miss bhops due to them. But if the game is already not running very smoothly, it can exacerbate the issue.
 
-Streaming with [GPU Screen Recorder](https://flathub.org/apps/com.dec05eba.gpu_screen_recorder) did NOT cause those stutters, but GPU SR can only capture a monitor entirely (there is no scene composition). This means you can't have LiveSplit, (visual) alerts or the chat displayed on stream (unless you put those over your game, also visible for you while you play).
+### Streaming/Recording
+
+Streaming/Recording with OBS using x264 encoder caused a noticeable performance impact. If you don't have a very modern/high end CPU, consider trying GPU encoding if your game is not running smoothly.  
+Streaming with [GPU Screen Recorder](https://flathub.org/apps/com.dec05eba.gpu_screen_recorder) has less performance impact than OBS, but GPU SR can only capture a monitor entirely (there is no scene composition). This means you can't have LiveSplit, (visual) alerts or the chat displayed on stream (unless you put those over your game, also visible for you while you play).  
 Skytis recommends using the new UI for GPU SR (can be toggled in the settings) as this has a few extra settings
+
+### Changing the process priority (niceness)
+
+*See [this guide](https://www.tecmint.com/set-linux-process-priority-using-nice-and-renice-commands/) for information about how process priority works on Linux.*
+
+If the game is already running:
+* Find the game's process ID
+* Open the terminal
+* Run `sudo renice -n -20 -p <L4D2 PID>` to give L4D2 the highest (user-space) priority
+
+For permanently setting the default niceness, see the linked guide.
+
+### Testing for stutters
+
+The easiest way is to load into Waterfront and run to the first gate. After turning the corner after the safe area, your FPS should/might dip. Just run to the gate, look at your FPS, then quickreset.
+If lowering the game's resolution does not affect the severity of the dips, you are most likely CPU-constrained. Try GPU encoding or a faster preset.
 
 ## Credits
 
