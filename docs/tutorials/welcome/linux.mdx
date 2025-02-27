@@ -29,7 +29,7 @@ Note: Skytis tried this previously (around July/August 2024) with aciidz' assist
     * `start livesplit\Livesplit.exe`
 * Add `Start L4D2.2000.bat` as Non-Steam game to Steam
   * Add some other .exe then edit it to point to the .bat since you can't add the .bat directly
-* Under Compatibility force a specific compatibility tool select a Proton version (I used 9.0-3)
+* Under Compatibility force a specific compatibility tool select a Proton version (see Proton section below)
 * Launch the bat-Steam-game
 * Wait for the game and LiveSplit to start
 * Verify that SST works (check for the console output or see if sst commands can be autocompleted)
@@ -81,9 +81,31 @@ Notes
 * Fonts don't work correctly, so stuff looks a little weird
 * Sometimes LiveSplit doesn't start. No clue why
 
-## Proton version specific issues
+## Proton 
 
-*This is based on Skytis' experience with L4D2 2.0.0.0 on Kubuntu 24.04 LTS (x11) between November 2024 and 2025-01-18. Keep in mind that your mileage may vary based on various factors. Also new bugfix versions might fix or break things.*
+Proton is needed to run Windows games on Linux. But based on Skytis' testing almost every Proton version has some noticeable issue(s). As of 2025-02-16 the only tested version without such issues (yet?) is GE-Proton9-11
+
+### Setting up GE-Proton versions
+
+The easiest way to set up GE-Proton versions is via the program `ProtonUp-Qt`
+* Click `Add version`
+* For `Compatibility tool` select `GE-Proton` (default)
+* For `Version` select `GE-Proton9-11`
+* Click `Install`
+* Wait for it to download and install
+* Restart Steam
+* Tell Steam to use the newly installed Proton version
+  * Right click the "game" in your library
+  * `Properties...`
+  * `Compatibility`
+  * Enable `Force the use of a specific Steam Play compatibility tool`
+  * Select `GE-Proton9-11`
+
+### Proton version specific issues
+
+*This is based on Skytis' experience with L4D2 2.0.0.0 on Kubuntu 24.04 LTS (x11) between November 2024 and 2025-02-16. Keep in mind that your mileage may vary based on various factors. Also new bugfix versions might fix or break things.*
+
+#### Vanilla Proton 
 
 * 9.0-4: LiveSplit splits late, sometimes not at all
 * 9.0-3: No issues noticed but version is no longer (easily) available
@@ -98,18 +120,63 @@ Notes
 * 3.7-8: Same as 3.16-9
 * Steam Linux Runtime 1.0 (scout): Nothing launches
 * Legacy runtime 1.0: Nothing launches
+
+#### GE-Proton (Glorious Eggroll)
+
 * GE-Proton9-22: Same as 9.0-4
 * GE-Proton9-21: Same as 9.0-4
 * GE-Proton9-20: Same as 9.0-4
 * GE-Proton9-19: Same as 9.0-4
-* GE-Proton9-1: Same as 8.0-5 but less frequently (based on limited testing), seems like the best option so far
+* GE-Proton9-10: Small stutters, feels less smooth
+* GE-Proton9-1 to 9-9 likely all have the exact same issues (would require further testing to confirm)
+  * GE-Proton9-9: Same as GE 9-2
+  * GE-Proton9-8: Timer sometimes doesn't unpause after load
+  * GE-Proton9-7: Same as 8.0-5 (dropped inputs)
+  * GE-Proton9-6: Same as 8.0-5 (dropped inputs)
+  * GE-Proton9-5: Probably same as GE 9-3 (not sure, but definitely had issues)
+  * GE-Proton9-4: Same as GE 9-3
+  * GE-Proton9-3: Same as 8.0-5 (dropped inputs), sometimes ~15% lower FPS for a few minutes
+  * GE-Proton9-2: Sometimes ~15% lower FPS for a few minutes
+  * GE-Proton9-1: Same as 8.0-5 (dropped inputs)
 
 If you know how to set up older vanilla Proton versions or have found a version that works without issues (after multiple hours of testing), please reach out to Skytis
+
+## Performance issues
+
+*This is also based purely on Skytis' experiences*
+
+There are certain areas where it seems like you always get lower FPS than usual, examples:
+* Carnival map 2 (Fairground) the open area with the merry-go-round (after the long slope)
+* Parish map 1 (Waterfront) after you exit the safe area, before the gate
+* Parish map 2 (Park) at the start of the the panic event
+These dips are noticeable, but not bad enough to miss bhops due to them. But if the game is already not running very smoothly, it can exacerbate the issue.
+
+### Streaming/Recording
+
+Streaming/Recording with OBS using x264 encoder caused a noticeable performance impact. If you don't have a very modern/high end CPU, consider trying GPU encoding if your game is not running smoothly.  
+Streaming with [GPU Screen Recorder](https://flathub.org/apps/com.dec05eba.gpu_screen_recorder) has less performance impact than OBS, but GPU SR can only capture a monitor entirely (there is no scene composition). This means you can't have LiveSplit, (visual) alerts or the chat displayed on stream (unless you put those over your game, also visible for you while you play).  
+Skytis recommends using the new UI for GPU SR (can be toggled in the settings) as this has a few extra settings
+
+### Changing the process priority (niceness)
+
+*See [this guide](https://www.tecmint.com/set-linux-process-priority-using-nice-and-renice-commands/) for information about how process priority works on Linux.*
+
+If the game is already running:
+* Find the game's process ID
+* Open the terminal
+* Run `sudo renice -n -20 -p <L4D2 PID>` to give L4D2 the highest (user-space) priority
+
+For permanently setting the default niceness, see the linked guide.
+
+### Testing for stutters
+
+The easiest way is to load into Waterfront and run to the first gate. After turning the corner after the safe area, your FPS should/might dip. Just run to the gate, look at your FPS, then quickreset.
+If lowering the game's resolution does not affect the severity of the dips, you are most likely CPU-constrained. Try GPU encoding or a faster preset.
 
 ## Credits
 
 * [https://grapefruit.neocities.org/stuff/livesplit\_proton](https://grapefruit.neocities.org/stuff/livesplit_proton) \- Figuring out how to get autosplitters working with Proton via STL
 * Zephyr - sending [https://grapefruit.neocities.org/stuff/livesplit\_proton](https://grapefruit.neocities.org/stuff/livesplit_proton) to Skytis
-* Skytis - Figuring the STL stuff out for Left 4 Dead 2, writing this guide
-* aciidz - Info that newer SST doesn't work on Linux, emotional support
+* Skytis - Figuring the STL stuff out for Left 4 Dead 2, writing this guide, testing
+* aciidz - Help with several technical questions, emotional support
 * Osku - Testing method 1, making Skytis retest method 1
