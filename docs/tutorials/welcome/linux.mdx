@@ -118,8 +118,8 @@ The easiest way to set up GE-Proton versions is via the program `ProtonUp-Qt`
 * 4.2-9: Same as 4.11-13
 * 3.16-9: Game loads long, menu works but LiveSplit doesn't start (no error pop up)
 * 3.7-8: Same as 3.16-9
-* Steam Linux Runtime 1.0 (scout): Nothing launches
-* Legacy runtime 1.0: Nothing launches
+
+*Note: Steam Linux Runtimes also show up in the list of compatibility tools, but are different from Proton. They don't aim to run Windows programs on Linux and thus won't work at all*
 
 #### GE-Proton (Glorious Eggroll)
 
@@ -150,6 +150,35 @@ There are certain areas where it seems like you always get lower FPS than usual,
 * Parish map 1 (Waterfront) after you exit the safe area, before the gate
 * Parish map 2 (Park) at the start of the the panic event
 These dips are noticeable, but not bad enough to miss bhops due to them. But if the game is already not running very smoothly, it can exacerbate the issue.
+
+### X11 vs. Wayland
+
+*This is based on Skytis' limited understanding about this topic and thus could be inaccurate*
+
+If you have multiple monitors running at different refresh rates, you will be limited to the lowest one on X11. For example if you have a 144 Hz monitor and a 60 Hz monitor, they will both be running at 60 Hz. There might be workarounds (like disabling the compositor) but those weren't tested here. If you are on Wayland, your monitors will run at their "correct" respective refresh rates.  
+If you don't know which one to use, generally stick with the default of your distro unless you have a reason to switch (like the multi monitor issue). There are some older programs that don't work under Wayland though and some features might not work yet (like global hotkeys in some programs, notably OBS)
+
+#### How to switch to Wayland
+
+*This will differ based on which distro and which version you are using*
+
+Steps for Kubuntu 24.04 LTS:
+* Run `sudo apt install plasma-workspace-wayland` to install Wayland
+* Log out or switch user
+* On the login screen click on `Desktop Session: Plasma (X11)` and select Wayland instead
+* This setting will be remembered across reboots, so you only have to set it once
+
+Steps for Kubuntu 24.10:
+* None, it's the default already
+
+#### Using global hotkeys in OBS on Wayland
+
+*This will likely become obsolete at some point in the future, once OBS implements it*
+
+* Run OBS via Xwayland (basically an X11 emulation) by running `QT_QPA_PLATFORM=xcb obs`
+* (This step may vary on other distros) Go to `System settings > Applications > Legacy X11 App Support` and allow legacy X11 apps to read keystrokes
+  * If you are only using hotkeys with modifier keys (Meta/Window keys, Shift, Alt, Ctrl), you only need to enable keystrokes with that, otherwise enable all
+  * Be aware of the security implications of this! If you just blindly install programs, you could get keylogged fairly easily
 
 ### Streaming/Recording
 
