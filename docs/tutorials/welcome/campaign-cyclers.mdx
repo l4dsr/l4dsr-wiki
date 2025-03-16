@@ -3,3 +3,24 @@ sidebar_position: 4
 ---
 
 # 🔁 Campaign Cyclers
+
+## What is a Campaign Cycler?
+A campaign cycler, coloquially referred to as just a "cycler", is a tool used by speedrunners to easily switch between campaigns without the need to return to the menu, saving runners the time it takes to create a new lobby. Cyclers are particularly useful for situations where runners would like to stay in a specific lobby due to it's time saving properties, such as maintaining the bot kick on the finale of Dark Carnival. A campaign cycler will cut down the amount of binds you need to use to vote between campaigns to one from up to fourteen.
+
+:::info Video Tutorial
+<YouTube youtubeid="-VfpKBolmlE"/>
+:::
+
+## How do I create a Campaign Cycler?
+- Go to https://mikes.software/l4d2cfg/ to create a campaign cycler. There, you will be able to drag the campaigns accordingly to both the category you are running and the order you would like to run them in.
+    - Once you are happy with the order, you can either copy the text and create a new text file, then paste it and save it as a .cfg file, or click the "save it" option for the website to do it for you.
+- Now that you have your cycler file, you need to place it in Left 4 Dead 2's cfg folder.
+    - Find in your File Explorer the Left 4 Dead 2 version of your choice. Put the file in Left 4 Dead 2\left4dead2\cfg. If you are playing on the newest version of the game, you can right click it on steam and select the "Properties" option, then "Installed Files", and finally "Browse." If you are playing on older version, select the folder in the location you decided to save it and follow the same process as is done on newest exculding the steam navigation.
+
+## How do I use my Campaign Cycler?
+- Assuming that you have followed the steps above correctly, you should now have your cycler file in the cfg folder. In the same folder, look for autoexec.cfg.
+- In autoexec.cfg, write `exec cycler`(can be replaced with whatever name you gave to the file),`bind [key] cycler_callvote`,`bind [key] cycler_next`,`bind [key] cycler_prev`,`bind [key] cycler_reset`.
+    - The commands should be self explanatory. It is worth noting that calling a vote with `cycler_callvote` will also vote to the next campaign in your order the next time it is pressed, instead of staying on the same campaign. A chat message will appear to tell you what campaign will be voted to next.
+
+## Important note
+- You will not be able to call a vote after the end cutscene has begun. This means that you will need to vote to switch campaigns before completing the campaign you are currently on. A vote will take about 3.5 seconds to complete which should give you plenty of time to finish a campaign.
