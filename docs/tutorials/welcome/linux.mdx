@@ -19,23 +19,26 @@ Note: Skytis tried this previously (around July/August 2024) with aciidz' assist
 
 ### Steps
 
-* Acquire the desired old version of L4D2 from the [L4D Speedrunning Discord](https://discord.gg/JAUCEJmm2H) (in this guide 2.0.0.0 is used), unzip somewhere
+* Acquire the desired old version of L4D(2) from the [L4D Speedrunning Discord](https://discord.gg/JAUCEJmm2H) (in this guide 2.0.0.0 is used), unzip somewhere
 * Acquire LiveSplit, unzip somewhere
 * Edit the `Start L4D2.2000.bat` to add LiveSplit to it
   * In this example you have a folder called "Games" which has the folders "L4D2 2.0.0.0" (this contains `Start L4D2.2000.bat`) and "livesplit" (this contains `LiveSplit.exe`)
-  * Add these lines (adjust according to your folder structure/LiveSplit location)
+  * Add these lines (adjust according to where your LiveSplit is relative to the L4D2 bat)
     * `cd ..`
     * `cd ..`
     * `start livesplit\Livesplit.exe`
 * Add `Start L4D2.2000.bat` as Non-Steam game to Steam
-  * Add some other .exe then edit it to point to the .bat since you can't add the .bat directly
-* Under Compatibility force a specific compatibility tool select a Proton version (see Proton section below)
+  * Either add some other .exe then edit it to point to the .bat or change the filter when browsing the file to add to show all files
+* Under Compatibility force a specific compatibility tool select a Proton version (see Proton section below, the default will very likely cause issues)
 * Launch the bat-Steam-game
 * Wait for the game and LiveSplit to start
 * Verify that SST works (check for the console output or see if sst commands can be autocompleted)
-  * If it crashes or SST doesn't work, use SST v0.5, v0.6-v0.8 don't work on Linux (v0.9 is not released as of 2024-11-20 but likely will work again)
-    * [https://dl.mikes.software/sst/](https://dl.mikes.software/sst/)
+  * If it crashes or SST doesn't work, check the SST Issuessection of this guide
 * Configure LiveSplit and verify that it works
+
+Notes
+
+* Fonts don't work correctly, so stuff looks a little weird (feel free to try to fix this)
 
 ## Method 2 (complicated way, SteamTinkerLaunch)
 
@@ -45,7 +48,7 @@ Tested by Skytis on Kubuntu 24.04 LTS (x11) on 2024-11-02 with the latest versio
 
 ### Steps
 
-* Acquire the desired old version of L4D2 from the [L4D Speedrunning Discord](https://discord.gg/JAUCEJmm2H) (in this guide 2.0.0.0 is used), unzip somewhere
+* Acquire the desired old version of L4D(2) from the [L4D Speedrunning Discord](https://discord.gg/JAUCEJmm2H) (in this guide 2.0.0.0 is used), unzip somewhere
 * Acquire LiveSplit, unzip somewhere
 * Install SteamTinkerLaunch [https://github.com/sonic2kk/steamtinkerlaunch](https://github.com/sonic2kk/steamtinkerlaunch)
   * It is not available via a native repository for (K)ubuntu. Install https://github.com/pacstall/pacstall and then run `pacstall -I steamtinkerlaunch-git`
@@ -54,7 +57,7 @@ Tested by Skytis on Kubuntu 24.04 LTS (x11) on 2024-11-02 with the latest versio
   * Should just need to run `steamtinkerlaunch compat add`
   * Restart Steam
 * Add `Start L4D2.2000.bat` as Non-Steam game to Steam
-  * Add some other .exe then edit it to point to the .bat since you can't add the .bat directly
+  * Either add some other .exe then edit it to point to the .bat or change the filter when browsing the file to add to show all files
 * Under Compatibility force a specific compatibility tool: Steam Tinker Launch
 * Launch the bat-Steam-game
 * In the STL window click the `MAIN MENU` button (you have 2s to do this, then the game is automatically launched)
@@ -67,9 +70,7 @@ Tested by Skytis on Kubuntu 24.04 LTS (x11) on 2024-11-02 with the latest versio
 * Click `SAVE AND PLAY`
 * Wait for the game and LiveSplit to start
 * Verify that SST works (check for the console output or see if sst commands can be autocompleted)
-  * If it crashes or SST doesn't work, use SST v0.5, v0.6-v0.8 don't work on Linux (v0.9 is not released as of 2024-11-20 but likely will work again)
-    * [https://dl.mikes.software/sst/](https://dl.mikes.software/sst/)
-    * Place the .dll in the SST folder
+  * If it crashes or SST doesn't work, check the SST Issues section of this guide
 * Configure LiveSplit and verify that it works
   * Skytis had it already set up before from testing other stuff, so if weird stuff happens to you when configuring, maybe launch LiveSplit by itself to configure it
 
@@ -78,7 +79,7 @@ Notes
 * If you quit the game first, LiveSplit freezes. You can just stop it via Steam
 * If you quit LiveSplit first, then the game, everything should properly be shut down
 * If you launch the bat-Steam-game and you don't get the STL launch dialog (where you can go to `MAIN MENU`), close LiveSplit and the game, then start `Steam Tinker Launch (Settings)` to edit stuff. It should have automatically selected the game you last launched (so the bat-Steam-game)
-* Fonts don't work correctly, so stuff looks a little weird
+* Fonts don't work correctly, so stuff looks a little weird (feel free to try to fix this)
 * Sometimes LiveSplit doesn't start. No clue why
 
 ## Proton 
@@ -143,24 +144,39 @@ If you know how to set up older vanilla Proton versions or have found a version 
 
 ## Performance issues
 
+### Testing for stutters
+
 *This is also based purely on Skytis' experiences*
 
 There are certain areas where it seems like you always get lower FPS than usual, examples:
 * Carnival map 2 (Fairground) the open area with the merry-go-round (after the long slope)
 * Parish map 1 (Waterfront) after you exit the safe area, before the gate
 * Parish map 2 (Park) at the start of the the panic event
+
 These dips are noticeable, but not bad enough to miss bhops due to them. But if the game is already not running very smoothly, it can exacerbate the issue.
+
+The easiest way to check is to load into Waterfront and run to the first gate. After turning the corner (at the end of the slope) after the safe area, your FPS should/might dip. Just run to the gate, look at your FPS, then quickreset.
+If lowering the game's resolution does not affect the severity of the dips, you are most likely CPU-constrained. Check the Streaming/Recording section
+
+### Streaming/Recording
+
+Streaming/Recording with OBS using x264 encoder caused a noticeable performance impact. If you don't have a very modern/high end CPU, consider trying GPU encoding if your game is not running smoothly.  
+Streaming with [GPU Screen Recorder](https://flathub.org/apps/com.dec05eba.gpu_screen_recorder) has less performance impact than OBS, but GPU SR can only capture a monitor entirely (there is no scene composition). This means you can't have LiveSplit, (visual) alerts or the chat displayed on stream (unless you put those over your game, also visible for you while you play).  
+It's recommended to use the new UI for GPU SR (can be toggled in the settings) as this has a few extra settings
 
 ### X11 vs. Wayland
 
 *This is based on Skytis' limited understanding about this topic and thus could be inaccurate*
 
 If you have multiple monitors running at different refresh rates, you will be limited to the lowest one on X11. For example if you have a 144 Hz monitor and a 60 Hz monitor, they will both be running at 60 Hz. There might be workarounds (like disabling the compositor) but those weren't tested here. If you are on Wayland, your monitors will run at their "correct" respective refresh rates.  
-If you don't know which one to use, generally stick with the default of your distro unless you have a reason to switch (like the multi monitor issue). There are some older programs that don't work under Wayland though and some features might not work yet (like global hotkeys in some programs, notably OBS)
+If you don't know which one to use, generally stick with the default of your distro unless you have a reason to switch (like the multi monitor issue). There are some older programs that don't work under Wayland though and some features might not work yet (like global hotkeys in some programs, notably OBS). Note that Wayland is slowly becoming the default in more and more distros as of 2025 and X11 will likely eventually be phased out completely.
 
 #### How to switch to Wayland
 
 *This will differ based on which distro and which version you are using*
+
+Check if you're on Wayland:
+* Run `echo $XDG_SESSION_TYPE` and see whether it returns `wayland` or `x11`
 
 Steps for Kubuntu 24.04 LTS:
 * Run `sudo apt install plasma-workspace-wayland` to install Wayland
@@ -168,25 +184,21 @@ Steps for Kubuntu 24.04 LTS:
 * On the login screen click on `Desktop Session: Plasma (X11)` and select Wayland instead
 * This setting will be remembered across reboots, so you only have to set it once
 
-Steps for Kubuntu 24.10:
+Steps for Kubuntu 24.10 (and newer):
 * None, it's the default already
 
 #### Using global hotkeys in OBS on Wayland
 
-*This will likely become obsolete at some point in the future, once OBS implements it*
+*This will likely become obsolete at some point in the future, once OBS implements global hotkeys on Wayland. Also this is a very bad and hacky workaround and might cause problems. If it does, you'll have to figure it out yourself*
 
 * Run OBS via Xwayland (basically an X11 emulation) by running `QT_QPA_PLATFORM=xcb obs`
 * (This step may vary on other distros) Go to `System settings > Applications > Legacy X11 App Support` and allow legacy X11 apps to read keystrokes
   * If you are only using hotkeys with modifier keys (Meta/Window keys, Shift, Alt, Ctrl), you only need to enable keystrokes with that, otherwise enable all
   * Be aware of the security implications of this! If you just blindly install programs, you could get keylogged fairly easily
 
-### Streaming/Recording
-
-Streaming/Recording with OBS using x264 encoder caused a noticeable performance impact. If you don't have a very modern/high end CPU, consider trying GPU encoding if your game is not running smoothly.  
-Streaming with [GPU Screen Recorder](https://flathub.org/apps/com.dec05eba.gpu_screen_recorder) has less performance impact than OBS, but GPU SR can only capture a monitor entirely (there is no scene composition). This means you can't have LiveSplit, (visual) alerts or the chat displayed on stream (unless you put those over your game, also visible for you while you play).  
-Skytis recommends using the new UI for GPU SR (can be toggled in the settings) as this has a few extra settings
-
 ### Changing the process priority (niceness)
+
+*You very likely won't need this. Based on Skytis' testing there was no noticeable performance difference. Only do this if you're having performance issues and the other information in this guide doesn't help with them*
 
 *See [this guide](https://www.tecmint.com/set-linux-process-priority-using-nice-and-renice-commands/) for information about how process priority works on Linux.*
 
@@ -197,10 +209,12 @@ If the game is already running:
 
 For permanently setting the default niceness, see the linked guide.
 
-### Testing for stutters
+## SST Issues
 
-The easiest way is to load into Waterfront and run to the first gate. After turning the corner after the safe area, your FPS should/might dip. Just run to the gate, look at your FPS, then quickreset.
-If lowering the game's resolution does not affect the severity of the dips, you are most likely CPU-constrained. Try GPU encoding or a faster preset.
+v0.6-v0.8 don't work on Linux due to technical reasons. If v0.9+ don't work, use v0.5 (at the time of writing this, there hasn't been extensive testing of v0.9 on Linux, but v0.5 definitely worked without issues)
+To download an older version
+  * Go to [https://dl.mikes.software/sst/](https://dl.mikes.software/sst/) and download the version
+  * Place the .dll in the SST folder
 
 ## Credits
 
