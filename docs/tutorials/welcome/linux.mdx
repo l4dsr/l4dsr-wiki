@@ -295,6 +295,17 @@ Steps for Kubuntu 24.10 (and newer):
   * If you are only using hotkeys with modifier keys (Meta/Window keys, Shift, Alt, Ctrl), you only need to enable keystrokes with that, otherwise enable all
   * Be aware of the security implications of this! If you just blindly install programs, you could get keylogged fairly easily
 
+#### Input Display
+
+On Wayland there is no native/easy way to have an input display (this is for security reasons - if a program can read all keystrokes, it makes keylogging quite easy). If you find/make one, let Skytis know. X11 does not have this security limitation and thus programs can listen to all keystrokes.
+
+As a hacky workaround you can do the following:
+* Install [Input Overlay](https://obsproject.com/forum/resources/input-overlay.552/)
+* Run OBS via Xwayland (basically an X11 emulation) by running `QT_QPA_PLATFORM=xcb obs`
+* (This step may vary on other distros) Go to `System settings > Applications > Legacy X11 App Support` and allow legacy X11 apps to read all keystrokes
+  * Be aware of the security implications of this! If you just blindly install programs, you could get keylogged fairly easily
+* Optionally change the X11 keystroke permission back after you're done streaming/recordign
+
 ### Changing the process priority (niceness)
 
 *You very likely won't need this. Based on Skytis' testing there was no noticeable performance difference. Only do this if you're having performance issues and the other information in this guide doesn't help with them*
