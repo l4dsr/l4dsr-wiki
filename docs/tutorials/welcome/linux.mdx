@@ -200,19 +200,32 @@ If you know how to set up older vanilla Proton versions or have found a version 
 
 ### Preventing the cursor from escaping the game window
 
-*Also based purely on Skytis' experiences*
-
 With GE-Proton9-11 the cursor can escape the game window/monitor if you flick hard enough and click, causing the game to lose focus. This wasn't an issue in the past, it is unclear what caused it (possibly Steam update or distro upgrade).
-This *should* be preventable by the following:
+~~This *should* be preventable by the following:~~
+* ~~install and run `protontricks`~~
+* ~~choose the bat-Steam-game~~
+* ~~`Select the default wineprefix` (unless you set up a separate one for this)~~
+* ~~`Run winecfg`~~
+* ~~Go to the `Graphics` tab~~
+* ~~Enable `Automatically capture the mouse in full-screen windows`~~
+
+~~However the checkbox is missing. If you select to run the game via (for example) Proton 9.0-4 (in Steam, in the game's configuration) and repeat the same steps, the checkbox will be present.
+As a temporary fix you can add the `left4dead2.exe` directly to Steam and run it with the launch options `env -u LD_PRELOAD gamescope -w 2560 -h 1440 --fullscreen --force-grab-cursor -- env LD_PRELOAD="$LD_PRELOAD" %command% -steam -insecure -novid -high -lv -console`. This requires gamescope to be installed. Note that you need to adjust the parameters if you don't play at 2560x1440. Adjust the parameters as needed, everything after the `%command%` is a launch option for the game itself (do NOT omit the `-insecure`!). This fix *only* gets the game running (without the cursor escaping), you will not get LiveSplit with autosplitting! You do not need to have LiveSplit running for a run to be valid. Check the Timing demos section for more info.~~
+
+Workaround (tested by Skytis and Osku on 2026-05-25):
+* set the bat-Steam-game to use (vanilla) Proton 8.0-5
+* launch it
+* close it
 * install and run `protontricks`
 * choose the bat-Steam-game
 * `Select the default wineprefix` (unless you set up a separate one for this)
 * `Run winecfg`
 * Go to the `Graphics` tab
 * Enable `Automatically capture the mouse in full-screen windows`
+* set the bat-Steam-game to use GE-Proton9-11
+* launch it
 
-However the checkbox is missing. If you select to run the game via (for example) Proton 9.0-4 (in Steam, in the game's configuration) and repeat the same steps, the checkbox will be present.
-As a temporary fix you can add the `left4dead2.exe` directly to Steam and run it with the launch options `env -u LD_PRELOAD gamescope -w 2560 -h 1440 --fullscreen --force-grab-cursor -- env LD_PRELOAD="$LD_PRELOAD" %command% -steam -insecure -novid -high -lv -console`. This requires gamescope to be installed. Note that you need to adjust the parameters if you don't play at 2560x1440. Adjust the parameters as needed, everything after the `%command%` is a launch option for the game itself (do NOT omit the `-insecure`!). This fix *only* gets the game running (without the cursor escaping), you will not get LiveSplit with autosplitting! You do not need to have LiveSplit running for a run to be valid. Check the Timing demos section for more info.
+Note: No idea why it works, so it might stop working at some point in the future.
 
 ## Timing demos
 
