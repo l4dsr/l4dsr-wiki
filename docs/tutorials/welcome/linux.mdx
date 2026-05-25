@@ -136,7 +136,7 @@ start LiveSplit\LiveSplit.exe```
 
 ## Proton 
 
-Proton is needed to run Windows games on Linux. But based on Skytis' testing almost every Proton version has some noticeable issue(s). As of 2025-02-16 the only tested version without such issues (yet?) is GE-Proton9-11
+Proton is needed to run Windows games on Linux. But based on Skytis' testing almost every Proton version has some noticeable issue(s). As of 2026-05-25 the only tested version without such issues (yet?) is GE-Proton9-11
 
 ### Setting up GE-Proton versions
 
@@ -156,10 +156,11 @@ The easiest way to set up GE-Proton versions is via the program `ProtonUp-Qt`
 
 ### Proton version specific issues
 
-*This is based on Skytis' experience with L4D2 2.0.0.0 on Kubuntu 24.04 LTS (x11) between November 2024 and 2025-02-16. Keep in mind that your mileage may vary based on various factors. Also new bugfix versions might fix or break things.*
+*This is based on Skytis' experience with L4D2 2.0.0.0 mainly on Kubuntu 24.04 LTS (x11) between November 2024 and 2025-02-16, the newer Proton versions were retested on Kubuntu 26.04 (Wayland) on 2026-05-25. Keep in mind that your mileage may vary based on various factors. Also new bugfix versions might fix or break things.*
 
 #### Vanilla Proton 
 
+* 10.0-4: Game generally feels unsmooth despite high FPS and there's occasional microstutters (mostly at the same areas, but sometimes random ones as well)
 * 9.0-4: LiveSplit splits late, sometimes not at all
 * 9.0-3: No issues noticed but version is no longer (easily) available
 * 8.0-5: Inputs are occasionally not registered by the game (verified via input display software)
@@ -176,6 +177,7 @@ The easiest way to set up GE-Proton versions is via the program `ProtonUp-Qt`
 
 #### GE-Proton (Glorious Eggroll)
 
+* GE-Proton10-34: LiveSplit doesn't split reliably
 * GE-Proton9-22: Same as 9.0-4
 * GE-Proton9-21: Same as 9.0-4
 * GE-Proton9-20: Same as 9.0-4
@@ -193,6 +195,36 @@ The easiest way to set up GE-Proton versions is via the program `ProtonUp-Qt`
   * GE-Proton9-1: Same as 8.0-5 (dropped inputs)
 
 If you know how to set up older vanilla Proton versions or have found a version that works without issues (after multiple hours of testing), please reach out to Skytis
+
+### Preventing the cursor from escaping the game window
+
+*Also based purely on Skytis' experiences*
+
+With GE-Proton9-11 the cursor can escape the game window/monitor if you flick hard enough and click, causing the game to lose focus. This wasn't an issue in the past, it is unclear what caused it (possibly Steam update or distro upgrade).
+This *should* be preventable by the following:
+* install and run `protontricks`
+* choose the bat-Steam-game
+* `Select the default wineprefix` (unless you set up a separate one for this)
+* `Run winecfg`
+* Go to the `Graphics` tab
+* Enable `Automatically capture the mouse in full-screen windows`
+
+However the checkbox is missing. If you select to run the game via (for example) Proton 9.0-4 (in Steam, in the game's configuration) and repeat the same steps, the checkbox will be present.
+As a temporary fix you can add the `left4dead2.exe` directly to Steam and run it with the launch options `env -u LD_PRELOAD gamescope -w 2560 -h 1440 --fullscreen --force-grab-cursor -- env LD_PRELOAD="$LD_PRELOAD" %command% -steam -insecure -novid -high -lv -console`. This requires gamescope to be installed. Note that you need to adjust the parameters if you don't play at 2560x1440. Adjust the parameters as needed, everything after the `%command%` is a launch option for the game itself (do NOT omit the `-insecure`!). This fix *only* gets the game running (without the cursor escaping), you will not get LiveSplit with autosplitting! You do not need to have LiveSplit running for a run to be valid. Check the Timing demos section for more info.
+
+## Timing demos
+
+The runs are timed based on the demos. If you want to verify the timing or are running without LiveSplit and want to know your time, you can do so using [Untitled Parser](https://github.com/UncraftedName/UntitledParser).
+
+* download the Linux version
+* place it wherever you'd like to (for example in your demos folder)
+* make it executable
+* put the demos you want to time in the same folder
+* open a terminal in that folder
+* run `./UntitledParser-linux .` (this will parse all demos in the given folder, in this case the current folder)
+* see what the `Total adjusted time` is
+
+Note: make sure you move/delete excess demos from the folder, otherwise you might run The Parish (and thus have 5 demos), then run Dead Center but still have the fifth demo of The Parish, meaning the parser will tell you the time of your Dead Center run plus the finale of The Parish
 
 ## Performance issues
 
@@ -263,15 +295,14 @@ For permanently setting the default niceness, see the linked guide.
 
 ## SST Issues
 
-v0.6-v0.8 don't work on Linux due to technical reasons. If v0.9+ don't work, use v0.5 (at the time of writing this, there hasn't been extensive testing of v0.9 on Linux, but v0.5 definitely worked without issues)
-To download an older version
+v0.6-v0.8 don't work on Linux due to technical reasons. If the newest one doesn't work, you can try downloading an older version:
   * Go to [https://dl.mikes.software/sst/](https://dl.mikes.software/sst/) and download the version
   * Place the .dll in the SST folder
 
 ## Credits
 
 * [https://grapefruit.neocities.org/stuff/livesplit\_proton](https://grapefruit.neocities.org/stuff/livesplit_proton) \- Figuring out how to get autosplitters working with Proton via STL
-* Zephyr - sending [https://grapefruit.neocities.org/stuff/livesplit\_proton](https://grapefruit.neocities.org/stuff/livesplit_proton) to Skytis
-* Skytis - Figuring the STL stuff out for Left 4 Dead 2, writing this guide, testing
-* aciidz - Help with several technical questions, emotional support
-* Osku - Testing method 1, making Skytis retest method 1
+* Zephyr - finding [https://grapefruit.neocities.org/stuff/livesplit\_proton](https://grapefruit.neocities.org/stuff/livesplit_proton)
+* Skytis - Writing this guide, most of the testing
+* aciidz - Help with several technical questions, emotional support, testing
+* Osku - Testing
