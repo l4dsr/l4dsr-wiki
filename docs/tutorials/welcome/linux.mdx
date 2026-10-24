@@ -11,10 +11,8 @@ Note: Everything here should also work for L4D1 (1.0 or Newest), but is untested
 *Use this method unless you have a specific reason not to*
 
 * Tested by Osku on Ubuntu 22.04 (Wayland) on 2024-11-08
-* Tested by Skytis on Kubuntu 24.04 LTS (x11) on 2024-11-08 with Proton 9.0-3
-* Tested by Skytis on Kubuntu 24.10 (Wayland) (clean install) on 2024-11-08 with Proton Experimental
-* Tested by Skytis on Kubuntu 24.04 LTS (x11) (clean install) on 2024-11-20 with Proton 9.0-3
 * Tested by Skytis on Kubuntu 26.04 (Wayland) on 2026-05-26
+* Tested by Skytis on CachyOS on 2026-10-14
 
 ### Steps
 
@@ -175,7 +173,7 @@ start LiveSplit\LiveSplit.exe
 
 ## Proton 
 
-Proton is needed to run Windows games on Linux. But based on Skytis' testing almost every Proton version has some noticeable issue(s). As of 2026-05-25 the only tested version without such issues (yet?) is GE-Proton9-11
+Proton is needed to run Windows games on Linux. But based on Skytis' testing almost every Proton version has some noticeable issue(s). As of 2026-05-25 the only tested version without such issues (yet?) is GE-Proton9-11. For some mice it might interpret mousewheel left/right as forward/back button presses, this is a Proton issue that is fixed in Proton 11.
 
 ### Setting up GE-Proton versions
 
@@ -216,6 +214,8 @@ The easiest way to set up GE-Proton versions is via the program `ProtonUp-Qt`
 
 #### GE-Proton (Glorious Eggroll)
 
+* GE-Proton11-4 and newer: Currently untested
+* GE-Proton11-1 to 11-3: not sure, but definitely had issues
 * GE-Proton10-34: LiveSplit doesn't split reliably
 * GE-Proton9-22: Same as 9.0-4
 * GE-Proton9-21: Same as 9.0-4
@@ -249,7 +249,7 @@ With GE-Proton9-11 the cursor can escape the game window/monitor if you flick ha
 ~~However the checkbox is missing. If you select to run the game via (for example) Proton 9.0-4 (in Steam, in the game's configuration) and repeat the same steps, the checkbox will be present.
 As a temporary fix you can add the `left4dead2.exe` directly to Steam and run it with the launch options `env -u LD_PRELOAD gamescope -w 2560 -h 1440 --fullscreen --force-grab-cursor -- env LD_PRELOAD="$LD_PRELOAD" %command% -steam -insecure -novid -high -lv -console`. This requires gamescope to be installed. Note that you need to adjust the parameters if you don't play at 2560x1440. Adjust the parameters as needed, everything after the `%command%` is a launch option for the game itself (do NOT omit the `-insecure`!). This fix *only* gets the game running (without the cursor escaping), you will not get LiveSplit with autosplitting! You do not need to have LiveSplit running for a run to be valid. Check the Timing demos section for more info.~~
 
-Workaround (tested by Skytis and Osku on 2026-05-25):
+Workaround (last tested on 2026-10-14):
 * set the bat-Steam-game to use (vanilla) Proton 8.0-5
 * launch it
 * close it
@@ -300,67 +300,16 @@ Streaming/Recording with OBS using x264 encoder caused a noticeable performance 
 Streaming with [GPU Screen Recorder](https://flathub.org/apps/com.dec05eba.gpu_screen_recorder) has less performance impact than OBS, but GPU SR can only capture a monitor entirely (there is no scene composition). This means you can't have LiveSplit, (visual) alerts or the chat displayed on stream (unless you put those over your game, also visible for you while you play).  
 It's recommended to use the new UI for GPU SR (can be toggled in the settings) as this has a few extra settings
 
-### X11 vs. Wayland
-
-*This is based on Skytis' limited understanding about this topic and thus could be inaccurate*
-
-If you have multiple monitors running at different refresh rates, you will be limited to the lowest one on X11. For example if you have a 144 Hz monitor and a 60 Hz monitor, they will both be running at 60 Hz. There might be workarounds (like disabling the compositor) but those weren't tested here. If you are on Wayland, your monitors will run at their "correct" respective refresh rates.  
-If you don't know which one to use, generally stick with the default of your distro unless you have a reason to switch (like the multi monitor issue). There are some older programs that don't work under Wayland though and some features might not work yet (like global hotkeys in some programs, notably OBS). Note that Wayland is slowly becoming the default in more and more distros as of 2025 and X11 will likely eventually be phased out completely.
-
-#### How to switch to Wayland
-
-*This will differ based on which distro and which version you are using*
-
-Check if you're on Wayland:
-* Run `echo $XDG_SESSION_TYPE` and see whether it returns `wayland` or `x11`
-
-Steps for Kubuntu 24.04 LTS:
-* Run `sudo apt install plasma-workspace-wayland` to install Wayland
-* Log out or switch user
-* On the login screen click on `Desktop Session: Plasma (X11)` and select Wayland instead
-* This setting will be remembered across reboots, so you only have to set it once
-
-Steps for Kubuntu 24.10 (and newer):
-* None, it's the default already
-
-#### Using global hotkeys in OBS on Wayland
-
-*This will likely become obsolete at some point in the future, once OBS implements global hotkeys on Wayland. Also this is a very bad and hacky workaround and might cause problems. If it does, you'll have to figure it out yourself*
-
-* Run OBS via Xwayland (basically an X11 emulation) by running `QT_QPA_PLATFORM=xcb obs`
-* (This step may vary on other distros) Go to `System settings > Applications > Legacy X11 App Support` and allow legacy X11 apps to read keystrokes
-  * If you are only using hotkeys with modifier keys (Meta/Window keys, Shift, Alt, Ctrl), you only need to enable keystrokes with that, otherwise enable all
-  * Be aware of the security implications of this! If you just blindly install programs, you could get keylogged fairly easily
-
 #### Input Display
 
-On Wayland there is no native/easy way to have an input display (this is for security reasons - if a program can read all keystrokes, it makes keylogging quite easy). If you find/make one, let Skytis know. X11 does not have this security limitation and thus programs can listen to all keystrokes.
+Recommended to use [girlglock's input overlay](https://github.com/girlglock/input-overlay)
 
-As a hacky workaround you can do the following:
+As a hacky workaround you can do the following (not recommended!):
 * Install [Input Overlay](https://obsproject.com/forum/resources/input-overlay.552/)
 * Run OBS via Xwayland (basically an X11 emulation) by running `QT_QPA_PLATFORM=xcb obs`
 * (This step may vary on other distros) Go to `System settings > Applications > Legacy X11 App Support` and allow legacy X11 apps to read all keystrokes
   * Be aware of the security implications of this! If you just blindly install programs, you could get keylogged fairly easily
 * Optionally change the X11 keystroke permission back after you're done streaming/recordign
-
-### Changing the process priority (niceness)
-
-*You very likely won't need this. Based on Skytis' testing there was no noticeable performance difference. Only do this if you're having performance issues and the other information in this guide doesn't help with them*
-
-*See [this guide](https://www.tecmint.com/set-linux-process-priority-using-nice-and-renice-commands/) for information about how process priority works on Linux.*
-
-If the game is already running:
-* Find the game's process ID
-* Open the terminal
-* Run `sudo renice -n -20 -p <L4D2 PID>` to give L4D2 the highest (user-space) priority
-
-For permanently setting the default niceness, see the linked guide.
-
-## SST Issues
-
-v0.6-v0.8 don't work on Linux due to technical reasons. If the newest one doesn't work, you can try downloading an older version:
-  * Go to [https://dl.mikes.software/sst/](https://dl.mikes.software/sst/) and download the version
-  * Place the .dll in the SST folder
 
 ## Credits
 
